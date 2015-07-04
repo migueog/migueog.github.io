@@ -1292,3 +1292,7 @@ there.
     background-size: cover;
     background-attachment: fixed
 }
+
+.down {
+    padding-top: 25%;
+}
