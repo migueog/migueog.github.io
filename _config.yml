@@ -1,0 +1,27 @@
+# Dependencies
+gems:             [jekyll-paginate]
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+#relative_permalinks: true
+
+# Setup
+title:            Miguel
+tagline:          'Miguel Ocampo-Gooding'
+description:      'Writings from Miguel'
+url:              http://miguelis.me
+baseurl:          /miguelis.me
+
+author:
+  name:           'Miguel Ocampo-Gooding'
+  url:            https://twitter.com/migue_og
+  originalauthor: 'Mark Otto'
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+
+github:
+  repo:          https://github.com/migueog

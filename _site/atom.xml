@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Miguel</title>
+ <link href="http://hyde.getpoole.com/atom.xml" rel="self"/>
+ <link href="http://hyde.getpoole.com/"/>
+ <updated>2016-01-27T16:17:12-05:00</updated>
+ <id>http://hyde.getpoole.com</id>
+ <author>
+   <name>Mark Otto</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>CUSEC</title>
+   <link href="http://hyde.getpoole.com/2016/01/27/cusec/"/>
+   <updated>2016-01-27T00:00:00-05:00</updated>
+   <id>http://hyde.getpoole.com/2016/01/27/cusec</id>
+   <content type="html">&lt;p&gt;I started volunteering for CUSEC back in 2014 as a head delegate for York University.
+As a head delegate, I brought about 15 students to Montreal for CUSEC.&lt;/p&gt;
+
+&lt;p&gt;For 2015, I volunteered on the design team and led a team to create posters,
+booklets, and the logo. Everything that the sponsors, speakers, and delegates
+saw and touched, my team made.&lt;/p&gt;
+
+&lt;p&gt;For 2016, I was brought back to volunteer as the web and design team. I performed
+the same responsibilities as the year before along with developing the 2016 website.&lt;/p&gt;
+
+&lt;p&gt;Check out the website here. &lt;a href=&quot;2016.cusec.net&quot;&gt;2016.cusec.net&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>UAV-g Conference</title>
+   <link href="http://hyde.getpoole.com/2015/12/24/uavg/"/>
+   <updated>2015-12-24T00:00:00-05:00</updated>
+   <id>http://hyde.getpoole.com/2015/12/24/uavg</id>
+   <content type="html">&lt;p&gt;In the summer of 2014, I was given my first paid job as a web developer. I
+developed the website for the 2015 Unmanned Aerial Vehicle for Geomatics conference
+that was held at York University. I&amp;#39;ve made simple websites before but never for
+a global audience. This was also my first experience working with a client.&lt;/p&gt;
+
+&lt;p&gt;I went into it with big ideas and I wanted to make it look flashy, cool, and sexy.
+After having looked at the previous years websites, I wanted to go in a different
+direction. Let&amp;#39;s throw in some color, make it a one pager and have the elements
+animated in some shape or form.&lt;/p&gt;
+
+&lt;p&gt;At the end of the project, I learned a lot from my mistakes. The most notable mistakes
+was not being able to understand what I did when I look at the code after a few weeks
+of inactivity, focusing on cool ideas instead of focusing on delivering the content
+in an easy to read way, and making the website mobile friendly. These were all
+new concepts to me.&lt;/p&gt;
+
+&lt;p&gt;This website was built using Bootstrap and JQuery.&lt;/p&gt;
+
+&lt;p&gt;You can see the website here &lt;a href=&quot;http://www.uav-g-2015.ca&quot;&gt;uav-g-2015.ca&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
