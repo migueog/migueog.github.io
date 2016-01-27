@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Miguel</title>
- <link href="http://miguelis.me/atom.xml" rel="self"/>
- <link href="http://miguelis.me/"/>
- <updated>2016-01-27T16:26:48-05:00</updated>
- <id>http://miguelis.me</id>
+ <link href="miguelis.me/atom.xml" rel="self"/>
+ <link href="miguelis.me/"/>
+ <updated>2016-01-27T16:35:59-05:00</updated>
+ <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>CUSEC</title>
-   <link href="http://miguelis.me/2016/01/27/cusec/"/>
+   <link href="miguelis.me/2016/01/27/cusec/"/>
    <updated>2016-01-27T00:00:00-05:00</updated>
-   <id>http://miguelis.me/2016/01/27/cusec</id>
+   <id>miguelis.me/2016/01/27/cusec</id>
    <content type="html">&lt;p&gt;I started volunteering for CUSEC back in 2014 as a head delegate for York University.
 As a head delegate, I brought about 15 students to Montreal for CUSEC.&lt;/p&gt;
 
@@ -33,9 +33,9 @@ the same responsibilities as the year before along with developing the 2016 webs
  
  <entry>
    <title>UAV-g Conference</title>
-   <link href="http://miguelis.me/2015/12/24/uavg/"/>
+   <link href="miguelis.me/2015/12/24/uavg/"/>
    <updated>2015-12-24T00:00:00-05:00</updated>
-   <id>http://miguelis.me/2015/12/24/uavg</id>
+   <id>miguelis.me/2015/12/24/uavg</id>
    <content type="html">&lt;p&gt;In the summer of 2014, I was given my first paid job as a web developer. I
 developed the website for the 2015 Unmanned Aerial Vehicle for Geomatics conference
 that was held at York University. I&amp;#39;ve made simple websites before but never for
