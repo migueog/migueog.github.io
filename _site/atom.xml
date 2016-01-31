@@ -4,7 +4,7 @@
  <title>Miguel</title>
  <link href="miguelis.me/atom.xml" rel="self"/>
  <link href="miguelis.me/"/>
- <updated>2016-01-27T19:40:39-05:00</updated>
+ <updated>2016-01-27T20:23:15-05:00</updated>
  <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
@@ -63,6 +63,40 @@ new concepts to me.&lt;/p&gt;
 &lt;p&gt;This website was built using Bootstrap and JQuery.&lt;/p&gt;
 
 &lt;p&gt;You can see the website here &lt;a href=&quot;http://www.uav-g-2015.ca&quot;&gt;uav-g-2015.ca&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Submitago</title>
+   <link href="miguelis.me/2015/12/24/submitago/"/>
+   <updated>2015-12-24T00:00:00-05:00</updated>
+   <id>miguelis.me/2015/12/24/submitago</id>
+   <content type="html">&lt;p&gt;Submitago is a RoR project developed for my User Interface class. It wasn&amp;#39;t a requirement
+to make a functioning app but I thought it&amp;#39;d be a fun exercise to see how designing a UI
+would translate to actually developing the application.&lt;/p&gt;
+
+&lt;p&gt;This was my first exposure to working with RoR.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Good Morning Mirror</title>
+   <link href="miguelis.me/2015/12/24/mirror/"/>
+   <updated>2015-12-24T00:00:00-05:00</updated>
+   <id>miguelis.me/2015/12/24/mirror</id>
+   <content type="html">&lt;p&gt;This project was my first experience working with Javascript. I decided to create
+a smart mirror built with Javascript, Annyang.js, and Bootstrap. It was a fun
+experience as it got me exposed to working with Javascript and using libraries
+that I haven&amp;#39;t been exposed to. It also had me think about how the user would
+experience the mirror. What would they use it for? What would they want to see?
+How should they interact with the mirror? This was a problem that I encountered
+during my development. Initially, I used a LeapMotion to interact with the mirror.
+I thought that a person could wave their hand around the mirror to do certain functions.
+As development went on, I found that using the LeapMotion required the user to be
+active in order for the mirror to work properly. I switched from LeapMotion to using Annyang.js
+so that the user can speak to the mirror to use it.&lt;/p&gt;
+
+&lt;p&gt;Check out the code here &lt;a href=&quot;github.com/mirror&quot;&gt;Good Morning Mirror Project&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
