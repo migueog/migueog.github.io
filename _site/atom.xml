@@ -4,7 +4,7 @@
  <title>Miguel</title>
  <link href="miguelis.me/atom.xml" rel="self"/>
  <link href="miguelis.me/"/>
- <updated>2016-01-27T20:23:15-05:00</updated>
+ <updated>2016-02-19T18:38:43-05:00</updated>
  <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
@@ -75,7 +75,16 @@ new concepts to me.&lt;/p&gt;
 to make a functioning app but I thought it&amp;#39;d be a fun exercise to see how designing a UI
 would translate to actually developing the application.&lt;/p&gt;
 
-&lt;p&gt;This was my first exposure to working with RoR.&lt;/p&gt;
+&lt;p&gt;This was my first exposure working with RoR. Submitago was designed to be
+a moodle clone that improved the UI of moodle while maintaining its basic
+functionality. My team found that moodle was too cluttered and wasn&amp;#39;t an enjoyable
+application to use.&lt;/p&gt;
+
+&lt;p&gt;Working with RoR was such a nice experience. It&amp;#39;s so easy to set up a new project and
+to create databases. Things just make sense and easy to fly through the development
+process.&lt;/p&gt;
+
+&lt;p&gt;RoR A++ would code again.&lt;/p&gt;
 </content>
  </entry>
  
