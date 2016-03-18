@@ -3,7 +3,6 @@ layout: post
 title: Hatch Extension and Pair programming
 ---
 
-#Hatch Extension and Pair programming
 I've always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.
 
 Let's walk through our solution. We start off by setting an id which we'll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we'll need from the project page. We're grabbing the project title, it's URL, and the canvas.
