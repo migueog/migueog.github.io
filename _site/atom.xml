@@ -4,7 +4,7 @@
  <title>Miguel</title>
  <link href="miguelis.me/atom.xml" rel="self"/>
  <link href="miguelis.me/"/>
- <updated>2016-03-18T06:26:11-04:00</updated>
+ <updated>2016-03-18T06:28:43-04:00</updated>
  <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
@@ -248,7 +248,7 @@ As development went on, I found that using the LeapMotion required the user to b
 active in order for the mirror to work properly. I switched from LeapMotion to using Annyang.js
 so that the user can speak to the mirror to use it.&lt;/p&gt;
 
-&lt;p&gt;Check out the code here &lt;a href=&quot;github.com/migueog/mirror&quot;&gt;Good Morning Mirror Project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Check out the code here &lt;a href=&quot;https://github.com/migueog/mirror&quot;&gt;Good Morning Mirror Project&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
