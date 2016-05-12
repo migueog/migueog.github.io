@@ -68,6 +68,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
+        
+      
+        
+          
         
       
       <a class="sidebar-nav-item" href="MiguelCV.pdf">Resume</a>
@@ -83,24 +89,24 @@
       <div class="post">
   <h1 class="post-title">Hatch Extension and Pair programming</h1>
   <span class="post-date">18 Mar 2016</span>
-  <p>I&#39;ve always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.</p>
+  <p>I’ve always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.</p>
 
-<p>Let&#39;s walk through our solution. We start off by setting an id which we&#39;ll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we&#39;ll need from the project page. We&#39;re grabbing the project title, it&#39;s URL, and the canvas.</p>
+<p>Let’s walk through our solution. We start off by setting an id which we’ll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we’ll need from the project page. We’re grabbing the project title, it’s URL, and the canvas.</p>
 
-<p>Initially, Dallis had the extension set up so that it would take a screenshot of the whole browser window and then she would crop out the image. We changed it so that we use toDataURL() on the canvas to get a data URI of the image.  </p>
+<p>Initially, Dallis had the extension set up so that it would take a screenshot of the whole browser window and then she would crop out the image. We changed it so that we use toDataURL() on the canvas to get a data URI of the image.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    
+	
   <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span>
     <span class="p">{</span> 
       <span class="na">code</span><span class="p">:</span> <span class="s2">" document.getElementsByClassName('project')[0].getElementsByTagName('h2')[0].innerHTML;"</span>
     <span class="p">},</span> 
     <span class="kd">function</span> <span class="p">(</span><span class="nx">ps1</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-            <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">ps1</span><span class="p">,</span> <span class="na">type</span> <span class="p">:</span> <span class="s2">"title"</span><span class="p">});</span>
-        <span class="p">});</span>
+		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
+			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">ps1</span><span class="p">,</span> <span class="na">type</span> <span class="p">:</span> <span class="s2">"title"</span><span class="p">});</span>
+		<span class="p">});</span>
     <span class="p">}</span>
   <span class="p">);</span>
 <span class="p">});</span>
@@ -111,9 +117,9 @@
       <span class="na">code</span><span class="p">:</span> <span class="s2">"document.URL"</span>
     <span class="p">},</span> 
     <span class="kd">function</span> <span class="p">(</span><span class="nx">ps2</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-            <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps2</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"url"</span><span class="p">});</span>
-        <span class="p">});</span>
+		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
+			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps2</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"url"</span><span class="p">});</span>
+		<span class="p">});</span>
     <span class="p">}</span>
   <span class="p">);</span>
 <span class="p">});</span>
@@ -132,7 +138,7 @@
 <span class="p">});</span>
 
 <span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    
+	
   <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">captureVisibleTab</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">viewTabUrl</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">getURL</span><span class="p">(</span><span class="s1">'screenshot.html?id='</span> <span class="o">+</span> <span class="nx">id</span><span class="o">++</span><span class="p">)</span>
     <span class="kd">var</span> <span class="nx">targetId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -148,7 +154,7 @@
       <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">views</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">views</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">==</span> <span class="nx">viewTabUrl</span><span class="p">)</span> <span class="p">{</span>
-                 <span class="nx">view</span><span class="p">.</span><span class="nx">setScreenshotUrl</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">);</span>
+			     <span class="nx">view</span><span class="p">.</span><span class="nx">setScreenshotUrl</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">);</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
@@ -159,24 +165,23 @@
     <span class="p">});</span>
   <span class="p">});</span>
 <span class="p">});</span></code></pre></figure>
- 
 
 <p>The second JS script grabs the project title, URL, and canvas and then writes it into our html. We set up a port variable that connects to background.js and then we listen for the three messages and we put throw them into our newly created tab.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="s2">"screenshot"</span><span class="p">});</span>
-    <span class="nx">port</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">sender</span><span class="p">){</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"title"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'titleText'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"url"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'website'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"canvas"</span><span class="p">){</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'target'</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="s2">"screenshot"</span><span class="p">});</span>
+	<span class="nx">port</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">sender</span><span class="p">){</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"title"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'titleText'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"url"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'website'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"canvas"</span><span class="p">){</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'target'</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">});</span></code></pre></figure>
 
-<p>With the scripting done, I decided to show Dallis how flex boxes and BEM work. It&#39;s pretty easy to read but for those who don&#39;t know how flexboxes work then what this stylesheet is doing is setting up a parent container which defines the direction of how its children will be laid out and then we wrote the children classes for the three sections. </p>
+<p>With the scripting done, I decided to show Dallis how flex boxes and BEM work. It’s pretty easy to read but for those who don’t know how flexboxes work then what this stylesheet is doing is setting up a parent container which defines the direction of how its children will be laid out and then we wrote the children classes for the three sections.</p>
 
 <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.container</span><span class="p">{</span>
   <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
@@ -215,7 +220,8 @@
   <span class="nl">padding</span><span class="p">:</span> <span class="m">4px</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it&#39;s even better to help someone out in a bind.</p>
+<p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it’s even better to help someone out in a bind.</p>
+
 
 </div>
 

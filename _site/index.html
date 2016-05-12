@@ -68,6 +68,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
+        
+      
+        
+          
         
       
       <a class="sidebar-nav-item" href="MiguelCV.pdf">Resume</a>
@@ -91,13 +97,13 @@
 
     <span class="post-date">19 Mar 2016</span>
 
-    <p>I spent this past weekend at a Generative Hack party making art using p5.js. I&#39;ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people. </p>
+    <p>I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.</p>
 
-<p>Here&#39;s one of the projects that I made for the art party.</p>
+<p>Here’s one of the projects that I made for the art party.</p>
 
 <p>http://art3.genarthackparty.com/live/ShhhJustListen/</p>
 
-<p>I attempted to make a synthesia machine that consisted of generating sounds based off of random values and then creating visuals based off the sounds. I&#39;ve included the code below:</p>
+<p>I attempted to make a synthesia machine that consisted of generating sounds based off of random values and then creating visuals based off the sounds. I’ve included the code below:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">osc</span><span class="p">,</span> <span class="nx">analyzer</span><span class="p">,</span> <span class="nx">delay</span><span class="p">;</span>
 
@@ -117,20 +123,20 @@
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">Shape</span><span class="p">(){</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">rect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		<span class="nx">rect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">background</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">rms</span> <span class="o">=</span> <span class="nx">analyzer</span><span class="p">.</span><span class="nx">getLevel</span><span class="p">();</span>
-    <span class="nx">fill</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
+ 	<span class="nx">fill</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
   <span class="nx">stroke</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">rand</span> <span class="o">=</span> <span class="nx">random</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
   <span class="nx">x</span> <span class="o">=</span> <span class="nx">osc</span><span class="p">.</span><span class="nx">amp</span><span class="p">(</span><span class="nx">rand</span><span class="p">);</span>
@@ -144,24 +150,25 @@
   <span class="nx">env</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="nx">osc</span><span class="p">);</span>
 
   <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">2500</span><span class="p">){</span>
-        <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="o">*</span><span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">derp</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
+  	<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">2500</span><span class="p">){</span>
+  		<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="o">*</span><span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">derp</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
+  	<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+  		<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
+
 
   </div>
   
@@ -174,24 +181,24 @@
 
     <span class="post-date">18 Mar 2016</span>
 
-    <p>I&#39;ve always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.</p>
+    <p>I’ve always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.</p>
 
-<p>Let&#39;s walk through our solution. We start off by setting an id which we&#39;ll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we&#39;ll need from the project page. We&#39;re grabbing the project title, it&#39;s URL, and the canvas.</p>
+<p>Let’s walk through our solution. We start off by setting an id which we’ll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we’ll need from the project page. We’re grabbing the project title, it’s URL, and the canvas.</p>
 
-<p>Initially, Dallis had the extension set up so that it would take a screenshot of the whole browser window and then she would crop out the image. We changed it so that we use toDataURL() on the canvas to get a data URI of the image.  </p>
+<p>Initially, Dallis had the extension set up so that it would take a screenshot of the whole browser window and then she would crop out the image. We changed it so that we use toDataURL() on the canvas to get a data URI of the image.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    
+	
   <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span>
     <span class="p">{</span> 
       <span class="na">code</span><span class="p">:</span> <span class="s2">" document.getElementsByClassName('project')[0].getElementsByTagName('h2')[0].innerHTML;"</span>
     <span class="p">},</span> 
     <span class="kd">function</span> <span class="p">(</span><span class="nx">ps1</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-            <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">ps1</span><span class="p">,</span> <span class="na">type</span> <span class="p">:</span> <span class="s2">"title"</span><span class="p">});</span>
-        <span class="p">});</span>
+		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
+			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">ps1</span><span class="p">,</span> <span class="na">type</span> <span class="p">:</span> <span class="s2">"title"</span><span class="p">});</span>
+		<span class="p">});</span>
     <span class="p">}</span>
   <span class="p">);</span>
 <span class="p">});</span>
@@ -202,9 +209,9 @@
       <span class="na">code</span><span class="p">:</span> <span class="s2">"document.URL"</span>
     <span class="p">},</span> 
     <span class="kd">function</span> <span class="p">(</span><span class="nx">ps2</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-            <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps2</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"url"</span><span class="p">});</span>
-        <span class="p">});</span>
+		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
+			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps2</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"url"</span><span class="p">});</span>
+		<span class="p">});</span>
     <span class="p">}</span>
   <span class="p">);</span>
 <span class="p">});</span>
@@ -223,7 +230,7 @@
 <span class="p">});</span>
 
 <span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    
+	
   <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">captureVisibleTab</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">viewTabUrl</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">getURL</span><span class="p">(</span><span class="s1">'screenshot.html?id='</span> <span class="o">+</span> <span class="nx">id</span><span class="o">++</span><span class="p">)</span>
     <span class="kd">var</span> <span class="nx">targetId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -239,7 +246,7 @@
       <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">views</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">views</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">==</span> <span class="nx">viewTabUrl</span><span class="p">)</span> <span class="p">{</span>
-                 <span class="nx">view</span><span class="p">.</span><span class="nx">setScreenshotUrl</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">);</span>
+			     <span class="nx">view</span><span class="p">.</span><span class="nx">setScreenshotUrl</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">);</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
@@ -250,24 +257,23 @@
     <span class="p">});</span>
   <span class="p">});</span>
 <span class="p">});</span></code></pre></figure>
- 
 
 <p>The second JS script grabs the project title, URL, and canvas and then writes it into our html. We set up a port variable that connects to background.js and then we listen for the three messages and we put throw them into our newly created tab.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="s2">"screenshot"</span><span class="p">});</span>
-    <span class="nx">port</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">sender</span><span class="p">){</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"title"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'titleText'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"url"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'website'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"canvas"</span><span class="p">){</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'target'</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-    <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="s2">"screenshot"</span><span class="p">});</span>
+	<span class="nx">port</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">sender</span><span class="p">){</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"title"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'titleText'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"url"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'website'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"canvas"</span><span class="p">){</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'target'</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">});</span></code></pre></figure>
 
-<p>With the scripting done, I decided to show Dallis how flex boxes and BEM work. It&#39;s pretty easy to read but for those who don&#39;t know how flexboxes work then what this stylesheet is doing is setting up a parent container which defines the direction of how its children will be laid out and then we wrote the children classes for the three sections. </p>
+<p>With the scripting done, I decided to show Dallis how flex boxes and BEM work. It’s pretty easy to read but for those who don’t know how flexboxes work then what this stylesheet is doing is setting up a parent container which defines the direction of how its children will be laid out and then we wrote the children classes for the three sections.</p>
 
 <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.container</span><span class="p">{</span>
   <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
@@ -306,7 +312,8 @@
   <span class="nl">padding</span><span class="p">:</span> <span class="m">4px</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it&#39;s even better to help someone out in a bind.</p>
+<p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it’s even better to help someone out in a bind.</p>
+
 
   </div>
   
@@ -319,7 +326,7 @@
 
     <span class="post-date">27 Jan 2016</span>
 
-    <p>I&#39;ve been a part of CUSEC for 4 years but I want to focus on the last year that I was
+    <p>I’ve been a part of CUSEC for 4 years but I want to focus on the last year that I was
 involved with the conference.</p>
 
 <p>For 2016, I volunteered as the designer and webmaster. For this year, I wanted
@@ -328,14 +335,15 @@ I decided to take inspiration from CUSEC 2014 and give it a splash of color that
 I thought would give the conference a great look.</p>
 
 <p>Developing the website was a great time. The CUSEC 2014 website had a great layout
-that was simple and easy to reproduce. The chairs asked that I didn&#39;t use a
+that was simple and easy to reproduce. The chairs asked that I didn’t use a
 hamburger icon button in the mobile view. <a href="http://builtbybuffalo.com/">Built
-By Buffalo</a> has a beautiful website and a great nav that did exactly what I wanted.Buffalo&#39;s nav bar had a great responsive touch that reorganized the navbar row depending on the screen size.</p>
+By Buffalo</a> has a beautiful website and a great nav that did exactly what I wanted.
+Buffalo’s nav bar had a great responsive touch that reorganized the navbar row depending on the screen size.</p>
 
-<p>Check out the website here. <a href="2016.cusec.net">2016.cusec.net</a>.</p>
+<p>Check out the website here. <a href="http://2016.cusec.net">2016.cusec.net</a>.</p>
 
 <p>I also had to design the sponsorship and conference booklets. It was great to see
-the conference booklets printed and in the hands of everyone at the conference. </p>
+the conference booklets printed and in the hands of everyone at the conference.</p>
 
   </div>
   
@@ -350,12 +358,12 @@ the conference booklets printed and in the hands of everyone at the conference. 
 
     <p>In the summer of 2014, I was given my first paid job as a web developer. I
 developed the website for the 2015 Unmanned Aerial Vehicle for Geomatics conference
-that was held at York University. I&#39;ve made simple websites before but never for
+that was held at York University. I’ve made simple websites before but never for
 a global audience. This was also my first experience working with a client.</p>
 
 <p>I went into it with big ideas and I wanted to make it look flashy, cool, and sexy.
 After having looked at the previous years websites, I wanted to go in a different
-direction. Let&#39;s throw in some color, make it a one pager and have the elements
+direction. Let’s throw in some color, make it a one pager and have the elements
 animated in some shape or form.</p>
 
 <p>At the end of the project, I learned a lot from my mistakes. The most notable mistakes
@@ -379,16 +387,16 @@ new concepts to me.</p>
 
     <span class="post-date">24 Dec 2015</span>
 
-    <p>Submitago is a RoR project developed for my User Interface class. It wasn&#39;t a requirement
-to make a functioning app but I thought it&#39;d be a fun exercise to see how designing a UI
+    <p>Submitago is a RoR project developed for my User Interface class. It wasn’t a requirement
+to make a functioning app but I thought it’d be a fun exercise to see how designing a UI
 would translate to actually developing the application.</p>
 
 <p>This was my first exposure working with RoR. Submitago was designed to be
 a moodle clone that improved the UI of moodle while maintaining its basic
-functionality. My team found that moodle was too cluttered and wasn&#39;t an enjoyable
+functionality. My team found that moodle was too cluttered and wasn’t an enjoyable
 application to use.</p>
 
-<p>Working with RoR was such a nice experience. It&#39;s so easy to set up a new project and
+<p>Working with RoR was such a nice experience. It’s so easy to set up a new project and
 to create databases. Things just make sense and easy to fly through the development
 process.</p>
 

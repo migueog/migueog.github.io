@@ -68,6 +68,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
+        
+      
+        
+          
         
       
       <a class="sidebar-nav-item" href="MiguelCV.pdf">Resume</a>
@@ -83,13 +89,13 @@
       <div class="post">
   <h1 class="post-title">Generative Art</h1>
   <span class="post-date">19 Mar 2016</span>
-  <p>I spent this past weekend at a Generative Hack party making art using p5.js. I&#39;ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people. </p>
+  <p>I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.</p>
 
-<p>Here&#39;s one of the projects that I made for the art party.</p>
+<p>Here’s one of the projects that I made for the art party.</p>
 
 <p>http://art3.genarthackparty.com/live/ShhhJustListen/</p>
 
-<p>I attempted to make a synthesia machine that consisted of generating sounds based off of random values and then creating visuals based off the sounds. I&#39;ve included the code below:</p>
+<p>I attempted to make a synthesia machine that consisted of generating sounds based off of random values and then creating visuals based off the sounds. I’ve included the code below:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">osc</span><span class="p">,</span> <span class="nx">analyzer</span><span class="p">,</span> <span class="nx">delay</span><span class="p">;</span>
 
@@ -109,20 +115,20 @@
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">Shape</span><span class="p">(){</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">rect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		<span class="nx">rect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">background</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">rms</span> <span class="o">=</span> <span class="nx">analyzer</span><span class="p">.</span><span class="nx">getLevel</span><span class="p">();</span>
-    <span class="nx">fill</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
+ 	<span class="nx">fill</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
   <span class="nx">stroke</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">rand</span> <span class="o">=</span> <span class="nx">random</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
   <span class="nx">x</span> <span class="o">=</span> <span class="nx">osc</span><span class="p">.</span><span class="nx">amp</span><span class="p">(</span><span class="nx">rand</span><span class="p">);</span>
@@ -136,24 +142,25 @@
   <span class="nx">env</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="nx">osc</span><span class="p">);</span>
 
   <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">2500</span><span class="p">){</span>
-        <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="o">*</span><span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">derp</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-            <span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
+  	<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">2500</span><span class="p">){</span>
+  		<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="o">*</span><span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">derp</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand2</span><span class="p">,</span> <span class="nx">rand3</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">PI</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">stroke</span><span class="p">(</span><span class="nx">rand3</span><span class="p">,</span> <span class="nx">rand2</span><span class="p">,</span> <span class="nx">derp</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+			<span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">derp</span><span class="p">,</span> <span class="o">-</span><span class="nx">rand</span><span class="p">,</span> <span class="o">-</span><span class="nx">PI</span><span class="p">,</span> <span class="o">-</span><span class="nx">i</span><span class="p">);</span>
+  	<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+  		<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
+
 
 </div>
 
