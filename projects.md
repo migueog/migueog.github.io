@@ -9,7 +9,7 @@ My work for CUSEC consisted of developing the website and the overall design of 
 
 <img src="/img/cusecBooklet.png">
 
-<a href="2016.cusec.net">2016.cusec.net</a>
+<a href="http://2016.cusec.net">2016.cusec.net</a>
 
 ### UAV-G
 
