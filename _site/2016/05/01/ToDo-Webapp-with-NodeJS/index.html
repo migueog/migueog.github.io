@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Todo Web app using the MEAN stack &middot; Miguel
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Miguel
+        </a>
+      </h1>
+      <p class="lead">Writings from Miguel</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+      <a class="sidebar-nav-item" href="/MiguelCV.pdf">Resume</a>
+      <a class="sidebar-nav-item" href="https://github.com/migueog">GitHub</a>
+    </nav>
+
+    <p>&copy; 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Todo Web app using the MEAN stack</h1>
+  <span class="post-date">01 May 2016</span>
+  <p>As a way for me to learn the MEAN stack better, I figured that I should make a small tutorial to cement my knowledge and hopefully help someone out in the process.</p>
+
+<p>Let’s get started with the project structure.</p>
+
+<h1 id="project-structure">Project Structure</h1>
+
+<figure class="highlight"><pre><code class="language-markup" data-lang="markup">	- public &lt;-- Folder where you'll put your stuff
+		- index.html	
+		- style.css
+		- app.js
+	- package.json
+	- server.js</code></pre></figure>
+
+<h3 id="installing-node-modules">Installing Node Modules</h3>
+
+<p>Let’s set up and install the dependencies of our app. In our package.json file, we’ll list out the dependencies and afterwards we’ll run npm install to have all the dependencies installed and ready to go!</p>
+
+<figure class="highlight"><pre><code class="language-markup" data-lang="markup">	{ 
+		"name" : "todo-app",
+		"version" : "0.0.0",
+		"description" : "Simple Todo App",
+		"main" : "server.js",
+		"author" : "Miguel OG",
+		"dependencies" : {
+			"body-parser" : "^1.4.3",
+			"express"        : "^4.13.4",
+	    "method-override": "^2.1.3",
+	    "mongoose"       : "^4.4.12",
+	    "morgan"         : "^1.1.1"
+		}
+	} </code></pre></figure>
+
+<p>Now let’s run npm install to grab all the dependencies.</p>
+
+<h1 id="node-config">Node Config</h1>
+
+<p>In our package.json file, we listed “server.js” as our main file. This is what our Node app will look to for all the configurations for our app. Let’s write out the configuration and we can walk through it slowly and talk about what each part does.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">	<span class="c1">//Server.js</span>
+
+	<span class="c1">//Set up</span>
+	<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">morgan</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'morgan'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">methodOverride</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'method-override'</span><span class="p">);</span>
+
+	<span class="c1">//configuration</span>
+	<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">database</span><span class="p">.</span><span class="nx">localUrl</span><span class="p">);</span>
+	
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/public'</span><span class="p">));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">morgan</span><span class="p">(</span><span class="s1">'dev'</span><span class="p">));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="s1">'extended'</span><span class="p">:</span><span class="s1">'true'</span><span class="p">}));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">}));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">methodOverride</span><span class="p">());</span>
+
+	<span class="c1">//App listening</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'It'</span><span class="nx">s</span> <span class="nx">working</span> <span class="nx">on</span> <span class="nx">port</span> <span class="mi">8080</span><span class="err">'</span><span class="p">);</span></code></pre></figure>
+
+<p>OK! Now that we got that out of the way, let’s walk through each section so we understand what is happening in each spot.</p>
+
+<h3 id="set-up">Set Up</h3>
+<p>This part sets up the requirements that make sure that all the dependencies that we installed earlier are included in our app.</p>
+
+<h3 id="configuration">Configuration</h3>
+<p>Here we connect mongoose to our localUrl. If you run this right now, the app won’t work :(. We’ll get this working once we’ve gone through everything.</p>
+
+<p>The rest of this section is telling the app to use all of the dependencies</p>
+
+<h3 id="app-listening">App Listening</h3>
+<p>Finally, we set our app to listen to 8080. 8080 refers to the portnumber when we run a local server.</p>
+
+<h3 id="back-to-configuration">Back to Configuration</h3>
+<p>Let’s fix our small problem of local.Url. Let’s add another variable to our setup section.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">	<span class="c1">//Server.js</span>
+
+	<span class="c1">//Set up</span>
+	<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">morgan</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'morgan'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">methodOverride</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'method-override'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">localUrl</span> <span class="o">=</span> <span class="s1">'mongodb://localhost/todoapptutorial'</span> <span class="c1">// Add this part!</span>
+
+	<span class="c1">//configuration</span>
+	<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">localUrl</span><span class="p">);</span>
+	
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/public'</span><span class="p">));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">morgan</span><span class="p">(</span><span class="s1">'dev'</span><span class="p">));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="s1">'extended'</span><span class="p">:</span><span class="s1">'true'</span><span class="p">}));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">}));</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">methodOverride</span><span class="p">());</span>
+
+	<span class="c1">//App listening</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'It'</span><span class="nx">s</span> <span class="nx">working</span> <span class="nx">on</span> <span class="nx">port</span> <span class="mi">8080</span><span class="err">'</span><span class="p">);</span></code></pre></figure>
+
+<p>That should do it! Let’s see if everything works!</p>
+
+<p>Go into your terminal and access your project directory. run <code class="highlighter-rouge">node server.js</code></p>
+
+<h1 id="setup-our-node-api">Setup our Node API</h1>
+
+<p>Before we start working on the frontend, we need to create our API that will be able to create, lookup, and delete our todos!</p>
+
+<p>Let’s first create our model. But first, what is a model? The model directly manages the data, logic and rules of the application. We’re storing all of our data through mongoose and the model is what accesses and makes use of that data. So cool!</p>
+
+<p>Let’s create our model!</p>
+
+<h3 id="model-setup">Model setup</h3>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">	<span class="c1">//server.js</span>
+	<span class="c1">//Put this in between the Setup and Config sections</span>
+
+	<span class="c1">//Model</span>
+	<span class="kd">var</span> <span class="nx">ToDo</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'Todo'</span><span class="p">,</span> <span class="p">{</span>
+		<span class="na">text</span><span class="p">:</span><span class="nx">string</span>
+	<span class="p">});</span></code></pre></figure>
+
+<p>Now that we have our model set up. Let’s create the API routes.</p>
+
+<h3 id="api-routes">API Routes</h3>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//server.js</span>
+<span class="c1">//Put this in after the config section</span>
+
+	<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/api/todos'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">Todo</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">todos</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+
+	<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/api/todos'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">Todo</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+			<span class="na">text</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+			<span class="na">done</span><span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">todo</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> 
+				<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+			
+			<span class="nx">Todo</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">todos</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+					<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+				<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+			<span class="p">});</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+
+	<span class="nx">app</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'api/todos/:todo_id'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">Todo</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span>
+			<span class="na">_id</span> <span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">todo_id</span>
+		<span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">todo</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+				<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+
+			<span class="nx">Todo</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">todos</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+					<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+				<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+			<span class="p">});</span>
+		<span class="p">});</span>
+	<span class="p">});</span></code></pre></figure>
+
+<h1 id="making-the-front-end-with-angular">Making The Front End with Angular</h1>
+
+<p>Now that the API is set up with the appropriate routes, we can now start working with our front end to interact with the API.</p>
+
+<p>Let’s add just a bit of code to server.js so that angular can see our server. Put the following line in between the routes that we just added and the listen section.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">	<span class="c1">//server.js</span>
+
+	<span class="c1">//application</span>
+	<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">sendfile</span><span class="p">(.</span><span class="o">/</span><span class="kr">public</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span><span class="err">'</span><span class="p">);</span>
+	<span class="p">})</span></code></pre></figure>
+
+<h3 id="setting-up-our-angular-file">Setting up our Angular file</h3>
+
+<p>Enough with working with server.js. Let’s go over to app.js and start coding!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">	<span class="c1">//app.js</span>
+
+	<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'todo'</span><span class="p">,</span> <span class="p">[]);</span>
+
+	<span class="kd">function</span> <span class="nx">mainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$scope</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="p">{};</span>
+
+		<span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/api/todos'</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">$scope</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="p">{};</span>
+				<span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+			<span class="p">})</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error'</span> <span class="o">+</span> <span class="nx">data</span><span class="p">);</span>
+			<span class="p">});</span>
+
+		<span class="nx">$scope</span><span class="p">.</span><span class="nx">createTodo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/api/todos'</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">formData</span><span class="p">)</span>
+				<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+					<span class="nx">$scope</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="p">{};</span>
+					<span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+				<span class="p">});</span>
+				<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+					<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error'</span> <span class="o">+</span> <span class="nx">data</span><span class="p">);</span>
+				<span class="p">});</span>
+		<span class="p">}</span>
+
+		<span class="nx">$scope</span><span class="p">.</span><span class="nx">deleteTodo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">$http</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'/api/todos'</span> <span class="o">+</span> <span class="nx">id</span><span class="p">)</span>
+				<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+					<span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+				<span class="p">})</span>
+				<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+					<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error'</span> <span class="o">+</span> <span class="nx">data</span><span class="p">);</span>
+				<span class="p">})</span>
+
+		<span class="p">};</span>
+	<span class="p">};</span></code></pre></figure>
+
+<h3 id="lets-make-this-pretty">Let’s make this pretty!</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	// index.html
+
+	<span class="cp">&lt;!doctype html&gt;</span>
+
+	<span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">"scotchTodo"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+	    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+
+	    <span class="nt">&lt;title&gt;</span>Node/Angular Todo App<span class="nt">&lt;/title&gt;</span>
+
+	    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;style&gt;</span>
+	        <span class="nt">html</span>                    <span class="p">{</span> <span class="nl">overflow-y</span><span class="p">:</span><span class="nb">scroll</span><span class="p">;</span> <span class="p">}</span>
+	        <span class="nt">body</span>                    <span class="p">{</span> <span class="nl">padding-top</span><span class="p">:</span><span class="m">50px</span><span class="p">;</span> <span class="p">}</span>
+	        <span class="nf">#todo-list</span>              <span class="p">{</span> <span class="nl">margin-bottom</span><span class="p">:</span><span class="m">30px</span><span class="p">;</span> <span class="p">}</span>
+	    <span class="nt">&lt;/style&gt;</span>
+
+	    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+	    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+	    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"mainController"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+
+	        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron text-center"</span><span class="nt">&gt;</span>
+	            <span class="nt">&lt;h1&gt;</span>I'm a Todo-aholic <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;&lt;/span&gt;&lt;/h1&gt;</span>
+	        <span class="nt">&lt;/div&gt;</span>
+
+	        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"todo-list"</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+	            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4 col-sm-offset-4"</span><span class="nt">&gt;</span>
+
+	                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span> <span class="na">ng-repeat=</span><span class="s">"todo in todos"</span><span class="nt">&gt;</span>
+	                    <span class="nt">&lt;label&gt;</span>
+	                        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">ng-click=</span><span class="s">"deleteTodo(todo._id)"</span><span class="nt">&gt;</span> 
+	                    <span class="nt">&lt;/label&gt;</span>
+	                <span class="nt">&lt;/div&gt;</span>
+
+	            <span class="nt">&lt;/div&gt;</span>
+	        <span class="nt">&lt;/div&gt;</span>
+
+	        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"todo-form"</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+	            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 col-sm-offset-2 text-center"</span><span class="nt">&gt;</span>
+	                <span class="nt">&lt;form&gt;</span>
+	                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+
+	                        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control input-lg text-center"</span> <span class="na">placeholder=</span><span class="s">"I want to buy a puppy that will love me forever"</span> <span class="na">ng-model=</span><span class="s">"formData.text"</span><span class="nt">&gt;</span>
+	                    <span class="nt">&lt;/div&gt;</span>
+
+	                    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg"</span> <span class="na">ng-click=</span><span class="s">"createTodo()"</span><span class="nt">&gt;</span>Add<span class="nt">&lt;/button&gt;</span>
+	                <span class="nt">&lt;/form&gt;</span>
+	            <span class="nt">&lt;/div&gt;</span>
+	        <span class="nt">&lt;/div&gt;</span>
+
+	    <span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+	<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<h3 id="almost-there-lets-run-the-app">Almost there! Let’s run the app!</h3>
+
+<p>Now that we have finished with the front end, let’s do the following in our terminal:
+ - npm install
+ - node server.js
+ - view in your browser at http://localhost:8080</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/04/23/LoL-Angular-App/">
+            League of Legends Angular App
+            <small>23 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/03/19/Generative-Art/">
+            Generative Art
+            <small>19 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/03/18/Hatch-Extension/">
+            Hatch Extension and Pair programming
+            <small>18 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

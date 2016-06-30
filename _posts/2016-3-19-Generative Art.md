@@ -7,7 +7,7 @@ I spent this past weekend at a Generative Hack party making art using p5.js. I'v
 
 Here's one of the projects that I made for the art party.
 
-http://art3.genarthackparty.com/live/ShhhJustListen/
+<a href="http://art3.genarthackparty.com/live/ShhhJustListen/">ShhhJustListen</a>
 
 I attempted to make a synthesia machine that consisted of generating sounds based off of random values and then creating visuals based off the sounds. I've included the code below:
 
