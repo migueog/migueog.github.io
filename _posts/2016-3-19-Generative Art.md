@@ -3,7 +3,7 @@ layout: post
 title: Generative Art
 ---
 
-I spent this past weekend at a Generative Hack party making art using p5.js. I've had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people. 
+I spent this past weekend at a Generative Hack party making art using p5.js. I've had past experience using Processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people. 
 
 Here's one of the projects that I made for the art party.
 
