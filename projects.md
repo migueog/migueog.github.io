@@ -1,5 +1,5 @@
 ---
-layout: projects
+layout: page
 title: Projects
 
 ---
@@ -16,12 +16,6 @@ Technology used: HTML, CSS, Javascript, Bootstrap, JQuery, Jekyll
 ### UAV-G
 
 My work for UAV-g consisted of developing the website and the overall design of the company. You can check out the website here: <a href="http://www.uav-g-2015.ca/">www.uav-g-2015.ca</a>
-
-Technology used: HTML, CSS, Javascript, Bootstrap, JQuery
-
-### Quartat
-
-My work for Quartat consisted of developing the website and the overall design of the company. 
 
 Technology used: HTML, CSS, Javascript, Bootstrap, JQuery
 

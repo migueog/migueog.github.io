@@ -4,13 +4,82 @@
  <title>Miguel</title>
  <link href="miguelis.me/atom.xml" rel="self"/>
  <link href="miguelis.me/"/>
- <updated>2016-06-30T11:59:28-04:00</updated>
+ <updated>2016-07-20T17:31:23-04:00</updated>
  <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>ES6 Concepts</title>
+   <link href="miguelis.me/2016/07/11/ES6-Concepts/"/>
+   <updated>2016-07-11T00:00:00-04:00</updated>
+   <id>miguelis.me/2016/07/11/ES6 Concepts</id>
+   <content type="html">&lt;p&gt;This post is designed to help out myself to cement the concepts of ES6 but also to provide a helpful document that explains ES6 in a different way.&lt;/p&gt;
+
+&lt;h3 id=&quot;arrow-functions&quot;&gt;Arrow Functions&lt;/h3&gt;
+
+&lt;p&gt;Arrow functions are great. They’re a shorthand way of setting up a function.&lt;/p&gt;
+
+&lt;p&gt;Let’s look at how we normally create a function in JS.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Hydrogen&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Helium&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Lithium&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Beryllium&quot;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What the code sample above is doing is creating an array called “a” and we are mapping a new array that contains the length of each element in the array.&lt;/p&gt;
+
+&lt;p&gt;Let’s rewrite this using the arrow function!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Hydrogen&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Helium&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Lithium&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s2&quot;&gt;&quot;Beryllium&quot;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We’re doing the same thing but a whole lot shorter! The arrow function doesn’t only just make functions shorter to write but it also defines it’s own “this” value.&lt;/p&gt;
+
+&lt;p&gt;For example,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		
+		&lt;span class=&quot;nx&quot;&gt;setInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;OK so! We created a constructor called Person that when it is created, it has an age of 0. setInterval is a cool built in JS function. It’s basically a looping function that takes in two parameters. The first parameter is what should the loop do and the second parameter is how often should the first parameter be activated.&lt;/p&gt;
+
+&lt;p&gt;If we didn’t use the arrow function, we would need to create a separate function that increases the age of the person that is wrapped in the setInterval function. This creates a global “this” instead of one that is specific to the person object that we create.&lt;/p&gt;
+
+&lt;h3 id=&quot;classes&quot;&gt;Classes&lt;/h3&gt;
+
+&lt;p&gt;A class in JS is a way for people with a background in OO design to use the same methodology in their programs. However, this does not replace JS’s prototyped based inheritance model. It is just a way to create a cleaner and simpler syntax to creating objects and dealing with inheritance.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Polygon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Todo Web app using the MEAN stack</title>
@@ -335,7 +404,7 @@
    <link href="miguelis.me/2016/03/19/Generative-Art/"/>
    <updated>2016-03-19T00:00:00-04:00</updated>
    <id>miguelis.me/2016/03/19/Generative Art</id>
-   <content type="html">&lt;p&gt;I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using Processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.&lt;/p&gt;
 
 &lt;p&gt;Here’s one of the projects that I made for the art party.&lt;/p&gt;
 
@@ -644,6 +713,34 @@ active in order for the mirror to work properly. I switched from LeapMotion to u
 so that the user can speak to the mirror to use it.&lt;/p&gt;
 
 &lt;p&gt;Check out the code here &lt;a href=&quot;https://github.com/migueog/mirror&quot;&gt;Good Morning Mirror Project&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;another-take-on-good-morning&quot;&gt;Another Take on Good Morning&lt;/h2&gt;
+
+&lt;p&gt;It has been around two years since I’ve worked on this project. I decided to revisit the project and see how I would improve it with what I know now.&lt;/p&gt;
+
+&lt;h3 id=&quot;no-more-voice-no-more-video&quot;&gt;No more Voice. No more Video&lt;/h3&gt;
+
+&lt;p&gt;When I was using this project as an art piece in a gallery, I saw that Annyang, the JS library that handles the voice recognition didn’t do a great job in large noisy spaces. With that in mind, I took it out.&lt;/p&gt;
+
+&lt;p&gt;The original scope of the project was to create a physical mirror that would display information. I decided to change the direction of the project to use a webcam to mimic the idea of looking into a mirror. I’ve been a daily user of the chrome extension Momentum and I feel that the use of that is an improvement over using a webcam. I took out the video and added a nice photo. The idea behind this project is to get info at a glance, not to see your reflection.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-add-in-some-geolocation-and-traffic&quot;&gt;Let’s add in some Geolocation and Traffic&lt;/h3&gt;
+
+&lt;p&gt;Having made some cuts, I added in using the browsers geolocation and Google Maps traffic data to add information that is pertinent to the user. At the end of the day, that’s what I care about.&lt;/p&gt;
+
+&lt;p&gt;Knowing that there’s a lot of traffic in my area is important to know and having Geolocation fed right into the function that requests weather data is great! I can be in Montreal or New York and the weather and traffic data will be up to date to where I am.&lt;/p&gt;
+
+&lt;p&gt;At the end of the day, it’s about the data and information. Not a morning face mug that only a mother could love.&lt;/p&gt;
+
+&lt;h3 id=&quot;chrome-extension-i-think-not&quot;&gt;Chrome extension? I think not&lt;/h3&gt;
+
+&lt;p&gt;When revisiting this project, I thought about turning it into a chrome extension but I ran into a problem.&lt;/p&gt;
+
+&lt;p&gt;Content Security Policy is a policy that Google implemented into extensions in order to prevent malicious scripts to be injected. It’s the funny thing about programming that you’ll run into dead ends and not be able to carry out what you wanted to do but in end, you learned a thing.&lt;/p&gt;
+
+&lt;h3 id=&quot;and-at-the-end-what-did-i-learn&quot;&gt;And at the end, what did I learn?&lt;/h3&gt;
+
+&lt;p&gt;I was happy to reduce the size of the project and implement better CSS. I focused on the experience of the project and not on my original goals.&lt;/p&gt;
 </content>
  </entry>
  

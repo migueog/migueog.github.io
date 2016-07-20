@@ -40,13 +40,12 @@
           Miguel
         </a>
       </h1>
-      <p class="lead">Writings from Miguel</p>
+      <p class="lead">Miguels Blog</p>
     </div>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item" href="/">Home</a>
 
-      
 
       
       
@@ -67,6 +66,8 @@
         
       
         
+          
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
           
         
       
@@ -101,11 +102,48 @@ so that the user can speak to the mirror to use it.</p>
 
 <p>Check out the code here <a href="https://github.com/migueog/mirror">Good Morning Mirror Project</a></p>
 
+<h2 id="another-take-on-good-morning">Another Take on Good Morning</h2>
+
+<p>It has been around two years since I’ve worked on this project. I decided to revisit the project and see how I would improve it with what I know now.</p>
+
+<h3 id="no-more-voice-no-more-video">No more Voice. No more Video</h3>
+
+<p>When I was using this project as an art piece in a gallery, I saw that Annyang, the JS library that handles the voice recognition didn’t do a great job in large noisy spaces. With that in mind, I took it out.</p>
+
+<p>The original scope of the project was to create a physical mirror that would display information. I decided to change the direction of the project to use a webcam to mimic the idea of looking into a mirror. I’ve been a daily user of the chrome extension Momentum and I feel that the use of that is an improvement over using a webcam. I took out the video and added a nice photo. The idea behind this project is to get info at a glance, not to see your reflection.</p>
+
+<h3 id="lets-add-in-some-geolocation-and-traffic">Let’s add in some Geolocation and Traffic</h3>
+
+<p>Having made some cuts, I added in using the browsers geolocation and Google Maps traffic data to add information that is pertinent to the user. At the end of the day, that’s what I care about.</p>
+
+<p>Knowing that there’s a lot of traffic in my area is important to know and having Geolocation fed right into the function that requests weather data is great! I can be in Montreal or New York and the weather and traffic data will be up to date to where I am.</p>
+
+<p>At the end of the day, it’s about the data and information. Not a morning face mug that only a mother could love.</p>
+
+<h3 id="chrome-extension-i-think-not">Chrome extension? I think not</h3>
+
+<p>When revisiting this project, I thought about turning it into a chrome extension but I ran into a problem.</p>
+
+<p>Content Security Policy is a policy that Google implemented into extensions in order to prevent malicious scripts to be injected. It’s the funny thing about programming that you’ll run into dead ends and not be able to carry out what you wanted to do but in end, you learned a thing.</p>
+
+<h3 id="and-at-the-end-what-did-i-learn">And at the end, what did I learn?</h3>
+
+<p>I was happy to reduce the size of the project and implement better CSS. I focused on the experience of the project and not on my original goals.</p>
+
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/07/11/ES6-Concepts/">
+            ES6 Concepts
+            <small>11 Jul 2016</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -121,15 +159,6 @@ so that the user can speak to the mirror to use it.</p>
           <a href="/2016/04/23/LoL-Angular-App/">
             League of Legends Angular App
             <small>23 Apr 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2016/03/19/Generative-Art/">
-            Generative Art
-            <small>19 Mar 2016</small>
           </a>
         </h3>
       </li>

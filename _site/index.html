@@ -40,13 +40,12 @@
           Miguel
         </a>
       </h1>
-      <p class="lead">Writings from Miguel</p>
+      <p class="lead">Miguels Blog</p>
     </div>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item active" href="/">Home</a>
 
-      
 
       
       
@@ -68,6 +67,8 @@
       
         
           
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
         
       
         
@@ -85,6 +86,79 @@
 
     <div class="content container">
       <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/07/11/ES6-Concepts/">
+        ES6 Concepts
+      </a>
+    </h1>
+
+    <span class="post-date">11 Jul 2016</span>
+
+    <p>This post is designed to help out myself to cement the concepts of ES6 but also to provide a helpful document that explains ES6 in a different way.</p>
+
+<h3 id="arrow-functions">Arrow Functions</h3>
+
+<p>Arrow functions are great. They’re a shorthand way of setting up a function.</p>
+
+<p>Let’s look at how we normally create a function in JS.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s2">"Hydrogen"</span><span class="p">,</span>
+		<span class="s2">"Helium"</span><span class="p">,</span>
+		<span class="s2">"Lithium"</span><span class="p">,</span>
+		<span class="s2">"Beryllium"</span>
+	<span class="p">];</span>
+
+	<span class="kd">var</span> <span class="nx">a2</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span><span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">});</span></code></pre></figure>
+
+<p>What the code sample above is doing is creating an array called “a” and we are mapping a new array that contains the length of each element in the array.</p>
+
+<p>Let’s rewrite this using the arrow function!</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s2">"Hydrogen"</span><span class="p">,</span>
+		<span class="s2">"Helium"</span><span class="p">,</span>
+		<span class="s2">"Lithium"</span><span class="p">,</span>
+		<span class="s2">"Beryllium"</span>
+	<span class="p">];</span>
+
+	<span class="kd">var</span> <span class="nx">a3</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span></code></pre></figure>
+
+<p>We’re doing the same thing but a whole lot shorter! The arrow function doesn’t only just make functions shorter to write but it also defines it’s own “this” value.</p>
+
+<p>For example,</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">function</span> <span class="nx">Person</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		
+		<span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">++</span><span class="p">;</span>
+		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span></code></pre></figure>
+
+<p>OK so! We created a constructor called Person that when it is created, it has an age of 0. setInterval is a cool built in JS function. It’s basically a looping function that takes in two parameters. The first parameter is what should the loop do and the second parameter is how often should the first parameter be activated.</p>
+
+<p>If we didn’t use the arrow function, we would need to create a separate function that increases the age of the person that is wrapped in the setInterval function. This creates a global “this” instead of one that is specific to the person object that we create.</p>
+
+<h3 id="classes">Classes</h3>
+
+<p>A class in JS is a way for people with a background in OO design to use the same methodology in their programs. However, this does not replace JS’s prototyped based inheritance model. It is just a way to create a cleaner and simpler syntax to creating objects and dealing with inheritance.</p>
+
+<p>Here’s an example</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kr">class</span> <span class="nx">Polygon</span> <span class="p">{</span>
+		<span class="nx">constructor</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span></code></pre></figure>
+
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -421,7 +495,7 @@
 
     <span class="post-date">19 Mar 2016</span>
 
-    <p>I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.</p>
+    <p>I spent this past weekend at a Generative Hack party making art using p5.js. I’ve had past experience using Processing and so it was easy and painless to jump into p5.js. Having gone to a handful of hackathons in the past, this one was by far the best one. The space was non competitive, quiet and lots of space. I want to stress the idea of not having to make an app to win the competition. It was just a great space to code at your own speed and hang out with like minded people.</p>
 
 <p>Here’s one of the projects that I made for the art party.</p>
 
@@ -638,36 +712,6 @@
 
 <p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it’s even better to help someone out in a bind.</p>
 
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/01/27/cusec/">
-        CUSEC
-      </a>
-    </h1>
-
-    <span class="post-date">27 Jan 2016</span>
-
-    <p>I’ve been a part of CUSEC for 4 years but I want to focus on the last year that I was
-involved with the conference.</p>
-
-<p>For 2016, I volunteered as the designer and webmaster. For this year, I wanted
-to go for a look that was traditional and clean but also had some funky colors.
-I decided to take inspiration from CUSEC 2014 and give it a splash of color that
-I thought would give the conference a great look.</p>
-
-<p>Developing the website was a great time. The CUSEC 2014 website had a great layout
-that was simple and easy to reproduce. The chairs asked that I didn’t use a
-hamburger icon button in the mobile view. <a href="http://builtbybuffalo.com/">Built
-By Buffalo</a> has a beautiful website and a great nav that did exactly what I wanted.
-Buffalo’s nav bar had a great responsive touch that reorganized the navbar row depending on the screen size.</p>
-
-<p>Check out the website here. <a href="http://2016.cusec.net">2016.cusec.net</a>.</p>
-
-<p>I also had to design the sponsorship and conference booklets. It was great to see
-the conference booklets printed and in the hands of everyone at the conference.</p>
 
   </div>
   
