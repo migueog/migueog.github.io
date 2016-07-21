@@ -4,13 +4,48 @@
  <title>Miguel</title>
  <link href="miguelis.me/atom.xml" rel="self"/>
  <link href="miguelis.me/"/>
- <updated>2016-07-20T17:31:23-04:00</updated>
+ <updated>2016-07-21T10:40:34-04:00</updated>
  <id>miguelis.me</id>
  <author>
    <name>Miguel Ocampo-Gooding</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>MaxScheduler</title>
+   <link href="miguelis.me/2016/07/20/MaxScheduler/"/>
+   <updated>2016-07-20T00:00:00-04:00</updated>
+   <id>miguelis.me/2016/07/20/MaxScheduler</id>
+   <content type="html">&lt;p&gt;Max Scheduler is a manufacturing planning software used to manage jobs for different machines at a factory. I was brought into this project to consult on the UI and UX of the web app. I was able to spend quality time with the software and through my experience I was able to advise on visual changes to help with the flow of the application.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-project&quot;&gt;The Project&lt;/h1&gt;
+
+&lt;p&gt;Max Scheduler was a fun UI problem to work on. The project consisted of going over an existing product that is already in production. The general design and layout of the application was there but it needed some polished. The developer was gracious enough to give me a shot at the project and I feel I pulled it off well. Let’s get through the process I went through.&lt;/p&gt;
+
+&lt;h1 id=&quot;beginning-the-process&quot;&gt;Beginning the Process&lt;/h1&gt;
+
+&lt;p&gt;Using Max Scheduler for the first time was a cool experience. I’ve never used a software like this before. The main things that popped out for me was the inconsistent menus, lack of a color theme, and the need to explore and experiment with the interface. I believe that a new user should be able to navigate easily through a software with a small learning curve. The current layout needed the user to continually experiment and and play around before being able to know what to do.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-changes&quot;&gt;The Changes&lt;/h1&gt;
+
+&lt;p&gt;I decided to start with creating a color theme as my jumping board for the rest of the project. I decided on the following colors to direct my thought process and to quickly give meaning to the elements that I would create later on.&lt;/p&gt;
+
+&lt;p&gt;IMAGE GOES HERE&lt;/p&gt;
+
+&lt;p&gt;My first objective was to create a consistent menu across all the screens. There was two problems with this situation. The first was to figure out a way to handle the sub navigation menu for the configuration screen. The second problem was to make as few adjustments as possible in order to increase clarity of the navigation whilst staying true to the original design. Since this software is already in production, I didn’t want to introduce any drastic changes that would confuse original users.&lt;/p&gt;
+
+&lt;p&gt;In my design, there will be a consistent menu design across all available pages. This menu now consists of a dark blue background with white text to improve readability. I decided to dedicate the right side of every page to always have all available actions. By concentrating all actions in a single location, the user will have a more efficient work flow and the user won’t need to explore the entirety of the screen space if they need to find a particular action. With this in mind, I moved all nav items to the right hand side of the page.&lt;/p&gt;
+
+&lt;p&gt;The configuration sub menu will be activated when a user is on the configuration page and will be accesible through hover on when the user is not on the configuration page. This sub menu will have a lighter blue color to separate itself from the main nav and to distinguish itself as a sub menu.&lt;/p&gt;
+
+&lt;p&gt;The second objective was to improve the readability of the content of each page. In my design, I decided to center align the content on some pages. For the pages with a great amount of tables and information, I decided to move the buttons over to the right hand side and to center align the content of each cell.&lt;/p&gt;
+
+&lt;p&gt;IMAGES&lt;/p&gt;
+
+&lt;p&gt;This was a fun project where I was able to apply some lessons from my UI class. I hope to have many more projects similar to this.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>ES6 Concepts</title>
@@ -741,6 +776,24 @@ so that the user can speak to the mirror to use it.&lt;/p&gt;
 &lt;h3 id=&quot;and-at-the-end-what-did-i-learn&quot;&gt;And at the end, what did I learn?&lt;/h3&gt;
 
 &lt;p&gt;I was happy to reduce the size of the project and implement better CSS. I focused on the experience of the project and not on my original goals.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ESSE</title>
+   <link href="miguelis.me/2015/01/02/esse/"/>
+   <updated>2015-01-02T00:00:00-05:00</updated>
+   <id>miguelis.me/2015/01/02/esse</id>
+   <content type="html">Need to fill this post out.
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ernest Mercier Lecture</title>
+   <link href="miguelis.me/2015/01/01/ernestmercier/"/>
+   <updated>2015-01-01T00:00:00-05:00</updated>
+   <id>miguelis.me/2015/01/01/ernestmercier</id>
+   <content type="html">&lt;p&gt;Need to fill this post out.&lt;/p&gt;
 </content>
  </entry>
  

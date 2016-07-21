@@ -24,3 +24,6 @@ paginate:         5
 
 github:
   repo:          https://github.com/migueog
+
+collections:
+- projects

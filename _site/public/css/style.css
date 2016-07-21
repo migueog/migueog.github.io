@@ -1,0 +1,13 @@
+.project__container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.item {
+	width: 50%;
+	padding: 5%;
+	text-align: center;
+}
+

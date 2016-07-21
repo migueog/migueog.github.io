@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/public/css/poole.css">
   <link rel="stylesheet" href="/public/css/syntax.css">
   <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/style.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -75,6 +76,10 @@
           
         
       
+        
+          
+        
+      
       <a class="sidebar-nav-item" href="/MiguelCV.pdf">Resume</a>
       <a class="sidebar-nav-item" href="https://github.com/migueog">GitHub</a>
     </nav>
@@ -86,6 +91,45 @@
 
     <div class="content container">
       <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/07/20/MaxScheduler/">
+        MaxScheduler
+      </a>
+    </h1>
+
+    <span class="post-date">20 Jul 2016</span>
+
+    <p>Max Scheduler is a manufacturing planning software used to manage jobs for different machines at a factory. I was brought into this project to consult on the UI and UX of the web app. I was able to spend quality time with the software and through my experience I was able to advise on visual changes to help with the flow of the application.</p>
+
+<h1 id="the-project">The Project</h1>
+
+<p>Max Scheduler was a fun UI problem to work on. The project consisted of going over an existing product that is already in production. The general design and layout of the application was there but it needed some polished. The developer was gracious enough to give me a shot at the project and I feel I pulled it off well. Let’s get through the process I went through.</p>
+
+<h1 id="beginning-the-process">Beginning the Process</h1>
+
+<p>Using Max Scheduler for the first time was a cool experience. I’ve never used a software like this before. The main things that popped out for me was the inconsistent menus, lack of a color theme, and the need to explore and experiment with the interface. I believe that a new user should be able to navigate easily through a software with a small learning curve. The current layout needed the user to continually experiment and and play around before being able to know what to do.</p>
+
+<h1 id="the-changes">The Changes</h1>
+
+<p>I decided to start with creating a color theme as my jumping board for the rest of the project. I decided on the following colors to direct my thought process and to quickly give meaning to the elements that I would create later on.</p>
+
+<p>IMAGE GOES HERE</p>
+
+<p>My first objective was to create a consistent menu across all the screens. There was two problems with this situation. The first was to figure out a way to handle the sub navigation menu for the configuration screen. The second problem was to make as few adjustments as possible in order to increase clarity of the navigation whilst staying true to the original design. Since this software is already in production, I didn’t want to introduce any drastic changes that would confuse original users.</p>
+
+<p>In my design, there will be a consistent menu design across all available pages. This menu now consists of a dark blue background with white text to improve readability. I decided to dedicate the right side of every page to always have all available actions. By concentrating all actions in a single location, the user will have a more efficient work flow and the user won’t need to explore the entirety of the screen space if they need to find a particular action. With this in mind, I moved all nav items to the right hand side of the page.</p>
+
+<p>The configuration sub menu will be activated when a user is on the configuration page and will be accesible through hover on when the user is not on the configuration page. This sub menu will have a lighter blue color to separate itself from the main nav and to distinguish itself as a sub menu.</p>
+
+<p>The second objective was to improve the readability of the content of each page. In my design, I decided to center align the content on some pages. For the pages with a great amount of tables and information, I decided to move the buttons over to the right hand side and to center align the content of each cell.</p>
+
+<p>IMAGES</p>
+
+<p>This was a fun project where I was able to apply some lessons from my UI class. I hope to have many more projects similar to this.</p>
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -566,151 +610,6 @@
   	<span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
-
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/03/18/Hatch-Extension/">
-        Hatch Extension and Pair programming
-      </a>
-    </h1>
-
-    <span class="post-date">18 Mar 2016</span>
-
-    <p>I’ve always been pretty curious with how a chrome extension works. Dallis, my girlfriend, works at a great company called Hatch Canada where they teach kids how to program. She needed to create an extension where you can take a screenshot of a kids project and then create a new tab with a nice layout so the student could print the project out. Dallis eventually came to me for help. It ended up being a great time since we pair programmed through the project and I got learn about chrome extensions.</p>
-
-<p>Let’s walk through our solution. We start off by setting an id which we’ll be using to create a unique tab. We then create 3 event listeners that grabs the 3 things we’ll need from the project page. We’re grabbing the project title, it’s URL, and the canvas.</p>
-
-<p>Initially, Dallis had the extension set up so that it would take a screenshot of the whole browser window and then she would crop out the image. We changed it so that we use toDataURL() on the canvas to get a data URI of the image.</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-<span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	
-  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span>
-    <span class="p">{</span> 
-      <span class="na">code</span><span class="p">:</span> <span class="s2">" document.getElementsByClassName('project')[0].getElementsByTagName('h2')[0].innerHTML;"</span>
-    <span class="p">},</span> 
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">ps1</span><span class="p">)</span> <span class="p">{</span>
-		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">ps1</span><span class="p">,</span> <span class="na">type</span> <span class="p">:</span> <span class="s2">"title"</span><span class="p">});</span>
-		<span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span>
-    <span class="p">{</span> 
-      <span class="na">code</span><span class="p">:</span> <span class="s2">"document.URL"</span>
-    <span class="p">},</span> 
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">ps2</span><span class="p">)</span> <span class="p">{</span>
-		  <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-			<span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps2</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"url"</span><span class="p">});</span>
-		<span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span>
-    <span class="p">{</span> 
-      <span class="na">code</span><span class="p">:</span> <span class="s2">" document.getElementsByClassName('project')[0].getElementsByTagName('canvas')[0].toDataURL();"</span>
-    <span class="p">},</span> 
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">ps3</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">port</span><span class="p">){</span>
-      <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="nx">ps3</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span><span class="s2">"canvas"</span><span class="p">});</span>
-    <span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	
-  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">captureVisibleTab</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">viewTabUrl</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">getURL</span><span class="p">(</span><span class="s1">'screenshot.html?id='</span> <span class="o">+</span> <span class="nx">id</span><span class="o">++</span><span class="p">)</span>
-    <span class="kd">var</span> <span class="nx">targetId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-    <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">onUpdated</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span> <span class="nx">listener</span><span class="p">(</span><span class="nx">tabId</span><span class="p">,</span> <span class="nx">changedProps</span><span class="p">)</span> <span class="p">{</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="nx">tabId</span> <span class="o">!=</span> <span class="nx">targetId</span> <span class="o">||</span> <span class="nx">changedProps</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="s2">"complete"</span><span class="p">)</span>
-        <span class="k">return</span><span class="p">;</span>
-
-      <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">onUpdated</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="nx">listener</span><span class="p">);</span>
-
-      <span class="kd">var</span> <span class="nx">views</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">getViews</span><span class="p">();</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">views</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">views</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">==</span> <span class="nx">viewTabUrl</span><span class="p">)</span> <span class="p">{</span>
-			     <span class="nx">view</span><span class="p">.</span><span class="nx">setScreenshotUrl</span><span class="p">(</span><span class="nx">screenshotUrl</span><span class="p">);</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-
-    <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="na">url</span><span class="p">:</span> <span class="nx">viewTabUrl</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">targetId</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">});</span></code></pre></figure>
-
-<p>The second JS script grabs the project title, URL, and canvas and then writes it into our html. We set up a port variable that connects to background.js and then we listen for the three messages and we put throw them into our newly created tab.</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="s2">"screenshot"</span><span class="p">});</span>
-	<span class="nx">port</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">sender</span><span class="p">){</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"title"</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'titleText'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"url"</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'website'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">"canvas"</span><span class="p">){</span>
-		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'target'</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">});</span></code></pre></figure>
-
-<p>With the scripting done, I decided to show Dallis how flex boxes and BEM work. It’s pretty easy to read but for those who don’t know how flexboxes work then what this stylesheet is doing is setting up a parent container which defines the direction of how its children will be laid out and then we wrote the children classes for the three sections.</p>
-
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.container</span><span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
-  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">550px</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.container__title</span><span class="p">{</span>
-  <span class="nl">order</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
-  <span class="nl">background-color</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">118</span><span class="p">,</span><span class="m">165</span><span class="p">);</span>
-  <span class="nl">height</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">margin</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.container__image</span><span class="p">{</span>
-  <span class="nl">order</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">margin</span><span class="p">:</span><span class="nb">auto</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">img</span><span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.container__url</span><span class="p">{</span>  
-  <span class="nl">order</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span> 
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">background-color</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">118</span><span class="p">,</span><span class="m">165</span><span class="p">);</span>
-  <span class="nl">margin</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">4px</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>It was a great little project for the two of us to work on. Learning something new is a great feeling but it’s even better to help someone out in a bind.</p>
 
 
   </div>
