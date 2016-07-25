@@ -8,6 +8,6 @@ description: Max Scheduler is a manufacturing planning software used to manage j
 
 link: /2016/07/20/MaxScheduler/
 
-pic:  /img/maxscheduler.png/
+pic:  /img/maxscheduler.png
 
 ---

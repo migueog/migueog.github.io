@@ -206,7 +206,7 @@ Let's add just a bit of code to server.js so that angular can see our server. Pu
 
 	//application
 	app.get('*', function(req, err) {
-		res.sendfile(./public/index.html');
+		res.sendfile('./public/index.html');
 	})
 
 {% endhighlight %}
@@ -264,7 +264,7 @@ Enough with working with server.js. Let's go over to app.js and start coding!
 
 	<!doctype html>
 
-	<html ng-app="scotchTodo">
+	<html ng-app="todo">
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -287,7 +287,7 @@ Enough with working with server.js. Let's go over to app.js and start coding!
 	    <div class="container">
 
 	        <div class="jumbotron text-center">
-	            <h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+	            <h1>This is a todo list <span class="label label-info">{{ todos.length }}</span></h1>
 	        </div>
 
 	        <div id="todo-list" class="row">
@@ -307,7 +307,7 @@ Enough with working with server.js. Let's go over to app.js and start coding!
 	                <form>
 	                    <div class="form-group">
 
-	                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+	                        <input type="text" class="form-control input-lg text-center" placeholder="Enter a Todo Here" ng-model="formData.text">
 	                    </div>
 
 	                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
