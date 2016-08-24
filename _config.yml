@@ -10,7 +10,7 @@ permalink:        pretty
 # Setup
 title:            Miguel
 tagline:          'Miguel Ocampo-Gooding'
-description:      'Miguels Blog'
+description:      'Front End Developer'
 url:              miguelis.me
 baseurl:          /
 
@@ -27,3 +27,4 @@ github:
 
 collections:
 - projects
+- posts

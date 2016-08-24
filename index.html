@@ -1,37 +1,18 @@
 ---
-layout: default
-title: Home
+layout: page
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+<div class="about__container">
+  <div class="about__title">
+    <h1>Hello!</h1>
   </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
+  <div class="about__content">
+    <img class="about__pic" src="/img/miggy.jpg"/>
+    <div class="about__text">
+      <p>I'm Miguel Ocampo-Gooding and I'm a front-end developer.</p>
+      <p>You can reach me at migueog@gmail.com</p>
+      <p>I'm also over on <a href="https://github.com/migueog">Github</a>,
+      <a href="https://twitter.com/migue_og">Twitter</a>, and <a href="https://ca.linkedin.com/in/miguel-ocampo-gooding-31222817">Linkedin</a>.</p>
+    </div>
+  </div>
 </div>

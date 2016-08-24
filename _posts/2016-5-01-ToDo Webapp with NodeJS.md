@@ -327,9 +327,3 @@ Now that we have finished with the front end, let's do the following in our term
  - npm install
  - node server.js
  - view in your browser at http://localhost:8080
-
-
-
-
-
-
