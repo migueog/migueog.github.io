@@ -25,6 +25,9 @@ paginate:         5
 github:
   repo:          https://github.com/migueog
 
+codepen:
+  site:          http://codepen.io/miguelog/
+
 collections:
 - projects
 - posts
