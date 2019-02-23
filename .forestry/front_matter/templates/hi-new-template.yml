@@ -6,3 +6,5 @@ fields:
 - type: text
   name: hullo
   label: Hullo
+pages:
+- _projects/Test test.md
