@@ -2,4 +2,7 @@
 label: Hi new template
 hide_body: false
 is_partial: false
-fields: []
+fields:
+- type: text
+  name: hullo
+  label: Hullo
