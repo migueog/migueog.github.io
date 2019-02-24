@@ -12,7 +12,7 @@ title:            Miguel
 tagline:          'Miguel Ocampo-Gooding'
 description:      'Front End Developer'
 url:              http://miguelis.me
-baseurl:          miguelis.me/
+baseurl:          /
 
 author:
   name:           'Miguel Ocampo-Gooding'
