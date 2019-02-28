@@ -1,0 +1,22 @@
+---
+label: Hi new test project
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  name: title
+  label: Title
+  config:
+    required: true
+  default: Here is a cool title
+- type: text
+  label: Work
+  name: work
+  default: 'Here is some work '
+- type: textarea
+  name: description
+  label: Description
+- type: text
+  name: link
+  label: link
+  default: "/2015/01/02/esse/"
