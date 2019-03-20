@@ -7,4 +7,3 @@ link: "/2016/01/27/cusec/"
 pic: "/img/cusecBooklet.png"
 
 ---
-Hello bleep bloop
