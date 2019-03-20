@@ -19,5 +19,3 @@ fields:
   name: link
   label: link
   default: ''
-pages:
-- _projects/here-is-a-cool-title.md
