@@ -1,10 +1,8 @@
 ---
-
 layout: post
 title: Todo Web app using the MEAN stack
 
 ---
-
 As a way for me to learn the MEAN stack better, I figured that I should make a small tutorial to cement my knowledge and hopefully help someone out in the process.
 
 Let's get started with the project structure.
