@@ -19,3 +19,5 @@ fields:
   name: link
   label: link
   default: ''
+pages:
+- _projects/gardening-with-a-raspberry-pi.md
