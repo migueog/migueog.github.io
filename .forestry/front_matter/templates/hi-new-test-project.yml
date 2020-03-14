@@ -21,3 +21,4 @@ fields:
   default: ''
 pages:
 - _projects/gardening-with-a-raspberry-pi.md
+- _projects/notes-about-testing.md
