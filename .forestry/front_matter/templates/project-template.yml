@@ -17,3 +17,5 @@ fields:
 - type: file
   name: pic
   label: Picture
+pages:
+- _projects/angular-to-vue-migration.md
