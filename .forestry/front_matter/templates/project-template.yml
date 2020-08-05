@@ -16,4 +16,4 @@ fields:
   label: link
 - type: file
   name: pic
-  label: pic
+  label: Picture
