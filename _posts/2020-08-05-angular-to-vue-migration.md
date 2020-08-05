@@ -1,6 +1,6 @@
 ---
 title: Angular to Vue migration
-layout: Layout goes here?
+layout: post
 
 ---
-How about over here
+It was a pretty cool project
