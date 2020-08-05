@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Submitago
+
 ---
 Submitago is a RoR project developed for my User Interface class. It wasn't a requirement
 to make a functioning app but I thought it'd be a fun exercise to see how designing a UI
