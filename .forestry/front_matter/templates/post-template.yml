@@ -3,8 +3,8 @@ label: Post template
 hide_body: false
 fields:
 - type: text
-  name: layout
-  label: layout
-- type: text
   name: title
   label: title
+- type: text
+  name: layout
+  label: layout
