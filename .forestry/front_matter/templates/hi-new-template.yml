@@ -1,7 +1,0 @@
----
-label: Hi new template
-hide_body: false
-fields:
-- type: text
-  name: hullo
-  label: Hullo
