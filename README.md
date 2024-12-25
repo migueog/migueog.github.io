@@ -6,7 +6,7 @@ This is a quick start template for [Hugo theme Stack](https://github.com/CaiJimm
 
 It comes with a basic theme structure and configuration. GitHub action has been set up to deploy the theme to a public GitHub page automatically. Also, there's a cron job to update the theme automatically everyday.
 
-## Get started
+## Get starteddddd
 
 1. Click *Use this template*, and create your repository as `<username>.github.io` on GitHub.
 ![Step 1](https://user-images.githubusercontent.com/5889006/156916624-20b2a784-f3a9-4718-aa5f-ce2a436b241f.png)
