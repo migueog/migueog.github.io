@@ -6,7 +6,3 @@ menu:
         params:
             icon: home
 ---
-
-
-
-Hello hello
