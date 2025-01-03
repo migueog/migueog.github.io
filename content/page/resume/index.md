@@ -12,4 +12,4 @@ menu:
 comments: false
 ---
 
-<embed src="./Miguel-OG-CV-2024.pdf" width="800px" height="2100px" />
+<embed src="./Miguel-OG-CV-2024.pdf" width="800px" height="800px" />
