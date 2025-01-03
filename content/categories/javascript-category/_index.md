@@ -1,7 +1,6 @@
 ---
-title: Javascript
-description: Javascript Category
-image:
+title: Code Category
+description: Javascript posts
 
 # Badge style
 style:
