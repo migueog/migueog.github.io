@@ -1,6 +1,6 @@
 ---
-title: Example Category
-description: A description of this category
+title: Javascript
+description: Javascript Category
 image:
 
 # Badge style
