@@ -7,7 +7,7 @@ menu:
     main: 
         weight: 4
         params:
-            icon: file-type-pdf
+            icon: link
 
 comments: false
 ---
