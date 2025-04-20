@@ -1,15 +1,14 @@
 ---
 title: Learning about Destructuring
 description: A real world application on how destructuring can be used
-slug: home
-date: 2022-03-06 00:00:00+0000
+slug: learning-about-destructuring
+date: 2025-01-15 00:00:00+0000
 categories:
     - Code Category
 tags:
     - code
     - javascript
     - destructuring
-weight: 1
 ---
 
 I'm starting the new year with refreshing and solidifying some Javascript and programming fundamentals. I've been reading up about destructuring and I want to write about what a real world application of this concept would be. I find that providing a real world example is necessary to understand why and how this can be used.
