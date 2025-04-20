@@ -15,14 +15,14 @@ What's memoization all about? First off, memoization is a technique where you ca
 
 Let's get into a simple example of this.
 
-`
+```
 // Without memoization
 
 function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
-`
+```
 
 This simple example is expensive because this recursive function will run for whatever the value N is. Specifically, this function has a time complexity of O(2^n). This means that the speed of this function will exponentially grow for each call it has to make. 
 
@@ -30,7 +30,7 @@ For example, if we say `n` is equal to 8 then this function would be called 54 t
 
 Now if I were to improve the performance of this method by using memoization, I would want to include a cache within the function that would hold all previous attempts. Let's see how this is implemented
 
-`
+```
 function memoizedFibonacci() {
   const cache = {}; // Setting up the cache
 
@@ -51,7 +51,7 @@ function memoizedFibonacci() {
 }
 
 const fibWithMemo = memoizedFibonacci();
-`
+```
 
 So much better! Now if we were to say that n is equal to 8 for this method, it would be change the time complexity to O(n). A significant improvement! Now this results in 9 function calls! To put it another way, the number of calls grow linearly instead of exponentially.
 
@@ -62,7 +62,7 @@ Let's expand on this and see how this can be used in the real world!.
 
 We're going to write a function that fetches data from some API.
 
-`
+```
 // Simulating an API call
 function fetchUserData(userId) {
   
@@ -95,7 +95,7 @@ function createMemoizedFetcher() {
     return userData;
   }
 }
-`
+```
 
 This is great! We can see that memoization is a great use case for reducing redundant API calls to the backend which makes the application run faster. This end up reduces the load on the backend as well.
 
@@ -103,7 +103,7 @@ We can continue to improve upon this! We can introduce an expiry time to each ca
 
 Let's implement this:
 
-`
+```
 function createMemoizedFetcherWithExpiry(expiryTimeMs = 60000) {
   const cache = {};
 
@@ -127,7 +127,7 @@ function createMemoizedFetcherWithExpiry(expiryTimeMs = 60000) {
     return userData;
   }
 }
-
+```
 ---
 
 Generally memoization is a good pattern to use when:
