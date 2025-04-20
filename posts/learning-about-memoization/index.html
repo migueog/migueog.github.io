@@ -1,0 +1,184 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="A real world application on how Memoization can be used"><title>Learning about Memoization</title>
+<link rel=canonical href=https://miguelog.com/posts/learning-about-memoization/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="Learning about Memoization"><meta property='og:description' content="A real world application on how Memoization can be used"><meta property='og:url' content='https://miguelog.com/posts/learning-about-memoization/'><meta property='og:site_name' content='Miguel Ocampo-Gooding'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='code'><meta property='article:tag' content='javascript'><meta property='article:tag' content='Memoization'><meta property='article:published_time' content='2025-04-20T00:00:01+00:00'><meta property='article:modified_time' content='2025-04-20T00:00:01+00:00'><meta name=twitter:title content="Learning about Memoization"><meta name=twitter:description content="A real world application on how Memoization can be used"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/miguel-profile_hu_1b48c0c8b643763a.jpeg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>✌️</span></figure><div class=site-meta><h1 class=site-name><a href=/>Miguel Ocampo-Gooding</a></h1><h2 class=site-description>Senior Developer based out of Toronto, Ontario</h2></div></header><ol class=menu-social><li><a href=https://github.com/migueog target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/resume/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Resume</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/code-category/>Code Category</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/learning-about-memoization/>Learning about Memoization</a></h2><h3 class=article-subtitle>A real world application on how Memoization can be used</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 20, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><p>What&rsquo;s memoization all about? First off, memoization is a technique where you cache the results of expensive function calls so that when the same input occur again, you can return the cached result instead of recalculating it again.</p><p>Let&rsquo;s get into a simple example of this.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// Without memoization
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>function fibonacci(n) {
+</span></span><span class=line><span class=cl>  if (n &lt;= 1) return n;
+</span></span><span class=line><span class=cl>  return fibonacci(n - 1) + fibonacci(n - 2);
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p>This simple example is expensive because this recursive function will run for whatever the value N is. Specifically, this function has a time complexity of O(2^n). This means that the speed of this function will exponentially grow for each call it has to make.</p><p>For example, if we say <code>n</code> is equal to 8 then this function would be called 54 times! That&rsquo;s a lot!</p><p>Now if I were to improve the performance of this method by using memoization, I would want to include a cache within the function that would hold all previous attempts. Let&rsquo;s see how this is implemented</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>function</span> <span class=n>memoizedFibonacci</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>const</span> <span class=n>cache</span> <span class=o>=</span> <span class=p>{};</span> <span class=o>//</span> <span class=n>Setting</span> <span class=n>up</span> <span class=n>the</span> <span class=n>cache</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>function</span><span class=p>(</span><span class=n>fib</span><span class=p>(</span><span class=n>n</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>n</span> <span class=ow>in</span> <span class=n>cache</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>cache</span><span class=p>[</span><span class=n>n</span><span class=p>];</span> <span class=o>//</span> <span class=n>This</span> <span class=n>is</span> <span class=n>the</span> <span class=n>cached</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>n</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>cache</span><span class=p>[</span><span class=n>n</span><span class=p>]</span> <span class=o>=</span> <span class=n>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>cache</span><span class=p>[</span><span class=n>n</span><span class=p>]</span> <span class=o>=</span> <span class=n>fib</span><span class=p>(</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=n>fib</span><span class=p>(</span><span class=n>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>);</span> 
+</span></span><span class=line><span class=cl>      <span class=o>//</span> <span class=n>Once</span> <span class=n>it</span><span class=s1>&#39;s called, it&#39;</span><span class=n>s</span> <span class=n>saved</span><span class=o>!</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>cache</span><span class=p>[</span><span class=n>n</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>const</span> <span class=n>fibWithMemo</span> <span class=o>=</span> <span class=n>memoizedFibonacci</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div><p>So much better! Now if we were to say that n is equal to 8 for this method, it would be change the time complexity to O(n). A significant improvement! Now this results in 9 function calls! To put it another way, the number of calls grow linearly instead of exponentially.</p><hr><p>Let&rsquo;s expand on this and see how this can be used in the real world!</p><p>We&rsquo;re going to write a function that fetches data from some API.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=o>//</span> <span class=n>Simulating</span> <span class=n>an</span> <span class=n>API</span> <span class=n>call</span>
+</span></span><span class=line><span class=cl><span class=n>function</span> <span class=n>fetchUserData</span><span class=p>(</span><span class=n>userId</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>new</span> <span class=n>Promise</span><span class=p>(</span><span class=n>resolve</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>setTimeout</span><span class=p>(()</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>resolve</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>        <span class=n>id</span><span class=p>:</span> <span class=n>userId</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>name</span><span class=p>:</span> <span class=err>`</span><span class=n>User</span> <span class=o>$</span><span class=p>{</span><span class=n>userId</span><span class=p>}</span><span class=err>`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>email</span><span class=p>:</span> <span class=err>`</span><span class=n>user</span><span class=o>$</span><span class=p>{</span><span class=n>userId</span><span class=p>}</span><span class=err>@</span><span class=n>example</span><span class=o>.</span><span class=n>com</span><span class=err>`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=o>///</span> <span class=o>...</span> <span class=n>more</span> <span class=n>user</span> <span class=n>data</span>
+</span></span><span class=line><span class=cl>      <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=mi>300</span><span class=p>)</span> <span class=o>//</span> <span class=n>Simulating</span> <span class=n>network</span> <span class=n>delay</span>
+</span></span><span class=line><span class=cl>  <span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>function</span> <span class=n>createMemoizedFetcher</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>const</span> <span class=n>cache</span> <span class=o>=</span> <span class=p>{};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>async</span> <span class=n>function</span><span class=p>(</span><span class=n>userId</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>userId</span> <span class=ow>in</span> <span class=n>cache</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=o>//</span> <span class=n>Returning</span> <span class=n>cached</span> <span class=n>data</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>cache</span><span class=p>[</span><span class=n>userId</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>userData</span> <span class=o>=</span> <span class=n>await</span> <span class=n>fetchUserData</span><span class=p>(</span><span class=n>userId</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=o>//</span> <span class=n>Storing</span> <span class=n>data</span> <span class=ow>in</span> <span class=n>the</span> <span class=n>cache</span><span class=o>.</span>
+</span></span><span class=line><span class=cl>    <span class=n>cache</span><span class=p>[</span><span class=n>userId</span><span class=p>]</span> <span class=o>=</span> <span class=n>userData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>userData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>This is great! We can see that memoization is a great use case for reducing redundant API calls to the backend which makes the application run faster. This end up reduces the load on the backend as well.</p><p>We can continue to improve upon this! We can introduce an expiry time to each cached element. Along with keeping things efficient, we are also making sure that the data we are requesting doesn&rsquo;t go stale.</p><p>Let&rsquo;s implement this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>function</span> <span class=n>createMemoizedFetcherWithExpiry</span><span class=p>(</span><span class=n>expiryTimeMs</span> <span class=o>=</span> <span class=mi>60000</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>const</span> <span class=n>cache</span> <span class=o>=</span> <span class=p>{};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>async</span> <span class=n>function</span><span class=p>(</span><span class=n>userId</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>now</span> <span class=o>=</span> <span class=n>Date</span><span class=o>.</span><span class=n>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>userId</span> <span class=ow>in</span> <span class=n>cache</span> <span class=o>&amp;&amp;</span> <span class=n>now</span> <span class=o>-</span> <span class=n>cache</span><span class=p>[</span><span class=n>userId</span><span class=p>]</span><span class=o>.</span><span class=n>timestamp</span> <span class=o>&lt;</span> <span class=n>expiryTimeMs</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=o>//</span> <span class=n>Returning</span> <span class=n>cached</span> <span class=n>data</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>cache</span><span class=p>[</span><span class=n>userId</span><span class=p>]</span><span class=o>.</span><span class=n>data</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>userData</span> <span class=o>=</span> <span class=n>await</span> <span class=n>fetchUserData</span><span class=p>(</span><span class=n>userId</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=o>//</span> <span class=n>Storing</span> <span class=n>data</span> <span class=ow>in</span> <span class=n>the</span> <span class=n>cache</span><span class=o>.</span>
+</span></span><span class=line><span class=cl>    <span class=n>cache</span><span class=p>[</span><span class=n>userId</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>data</span><span class=p>:</span> <span class=n>userData</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=n>timestamp</span><span class=p>:</span> <span class=n>now</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>userData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><hr><p>Generally memoization is a good pattern to use when:</p><ul><li>You have expensive recursive functions</li><li>You have a function that are performing costly operations repeatedly with the same inputs</li><li>API calls and network requests</li><li>Parsing and processing large data</li><li>UI rendering optimizations</li></ul><p>and for some real world examples</p><ul><li>user data processing</li><li>Form validation</li><li>Search functions</li><li>Rendering complex UI components</li><li>Route calculations (? what)</li></ul><hr><p>Memoization isn&rsquo;t always the answer! Here&rsquo;s a few times when it&rsquo;s not a good pattern to implement:</p><ul><li>Simple, fast operations</li><li>Using impure functions</li><li>Inputs that are rarely repeated</li><li>Time sensitive or real time data.</li><li>If the cached results consumes more memory than what it costs to compute</li></ul><p>Thanks for reading!</p></section><footer class=article-footer><section class=article-tags><a href=/tags/code/>Code</a>
+<a href=/tags/javascript/>Javascript</a>
+<a href=/tags/memoization/>Memoization</a></section><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>Last updated on Apr 20, 2025 00:00 UTC</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/posts/learning-about-destructuring/><div class=article-details><h2 class=article-title>Learning about Destructuring</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 Miguel Ocampo-Gooding</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
