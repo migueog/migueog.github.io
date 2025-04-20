@@ -58,7 +58,7 @@ So much better! Now if we were to say that n is equal to 8 for this method, it w
 
 ---
 
-Let's expand on this and see how this can be used in the real world!.
+Let's expand on this and see how this can be used in the real world!
 
 We're going to write a function that fetches data from some API.
 
@@ -74,7 +74,7 @@ function fetchUserData(userId) {
         email: `user${userId}@example.com`,
         /// ... more user data
       });
-    }, 300) // Simulating network delay.
+    }, 300) // Simulating network delay
   })
 }
 
@@ -128,6 +128,7 @@ function createMemoizedFetcherWithExpiry(expiryTimeMs = 60000) {
   }
 }
 ```
+
 ---
 
 Generally memoization is a good pattern to use when:
@@ -154,4 +155,6 @@ Memoization isn't always the answer! Here's a few times when it's not a good pat
 - Inputs that are rarely repeated
 - Time sensitive or real time data.
 - If the cached results consumes more memory than what it costs to compute
+
+Thanks for reading!
 
