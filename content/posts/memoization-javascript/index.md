@@ -16,14 +16,12 @@ What's memoization all about? First off, memoization is a technique where you ca
 Let's get into a simple example of this.
 
 `
-
 // Without memoization
 
 function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
-
 `
 
 This simple example is expensive because this recursive function will run for whatever the value N is. Specifically, this function has a time complexity of O(2^n). This means that the speed of this function will exponentially grow for each call it has to make. 
