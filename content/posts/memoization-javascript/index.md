@@ -30,7 +30,6 @@ For example, if we say `n` is equal to 8 then this function would be called 54 t
 
 Now if I were to improve the performance of this method by using memoization, I would want to include a cache within the function that would hold all previous attempts. Let's see how this is implemented
 
-
 `
 function memoizedFibonacci() {
   const cache = {}; // Setting up the cache
